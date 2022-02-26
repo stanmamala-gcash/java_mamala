@@ -75,7 +75,6 @@ public class SMSChecker {
             systemSMS(smsToCheck.get("recipient"), smsToCheck.get("sender"), 1);
         }
 
-
         return step;
     }
 
@@ -98,7 +97,7 @@ public class SMSChecker {
         static_SMS.put(1, "[SMS FAILED] This promo does not exist. Please try again.");
         static_SMS.put(2, "[SMS FAILED] The has expired. It is no longer available. Please try other promos.");
         static_SMS.put(3, "[SMS FAILED] The promo code you entered is invalid. Please try again.");
-        static_SMS.put(4, "[SMS FAILED] Please check you name format and/or your recipient.");
+        static_SMS.put(4, "[SMS FAILED] Please check you name format. It should be <Lastname, Firstname>.");
         static_SMS.put(5, "[SMS SUCCESSFUL] To continue with the promo registration, just send REGISTER to " + sender);
         static_SMS.put(6, "[SMS SUCCESSFUL] To complete the promo registration, please send your Lastname, Firstname to " + sender);
         static_SMS.put(7, "[SMS SUCCESSFUL] Congratulations! You are now registered to this promo. ");

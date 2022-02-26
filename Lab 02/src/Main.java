@@ -1,12 +1,8 @@
 import database.Database;
 
-import javax.xml.crypto.Data;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -69,16 +65,37 @@ public class Main {
                 System.out.println("Enter your mobile number: ");
                 sender = input.nextLine();
                 sms.put("sender", sender);
+                if (Objects.equals(sender, "close")) {
+                    logger.log(Level.INFO, "Closing the application... \n");
+                    polling = false;
+                }
+            }
+            if (!polling) {
+                break;
             }
 
             System.out.println("Enter message: ");
             String message = input.nextLine();
             sms.put("message", message);
+            if (Objects.equals(message, "close")) {
+                logger.log(Level.INFO, "Closing the application... \n");
+                polling = false;
+            }
+            if (!polling) {
+                break;
+            }
 
             while (recipient.isEmpty()) {
                 System.out.println("Send to: ");
                 recipient = input.nextLine();
                 sms.put("recipient", recipient);
+                if (Objects.equals(recipient, "close")) {
+                    logger.log(Level.INFO, "Closing the application... \n");
+                    polling = false;
+                }
+            }
+            if (!polling) {
+                break;
             }
 
             step = SMSChecker.smsChecker(sms, step);
